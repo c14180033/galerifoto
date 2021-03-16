@@ -7,8 +7,27 @@
 </ion-header>
 
 <ion-content [fullscreen]="true">
+    
     <ion-label color="primary">Nama : Marcel Slamet Sugianto</ion-label> <br>
     <ion-label color="primary">NRP : C14180033</ion-label> <br>
     <ion-label color="primary">Jurusan : Informatika</ion-label> <br>
   
+    <ion-item style='margin-top:8px'>  
+      <ion-item>
+        <ion-input type="text" placeholder="Tebakan Angka" [(ngModel)]='inputTebak'></ion-input>
+      </ion-item>
+    </ion-item>
+    <ion-button expand='full' (click)='tebak()'> Tebak </ion-button>
+    
+    <ng-template *ngIf="cek; then benar; else salah" >
+    </ng-template>
+
+    <ng-template #salah> 
+      <ion-label color='danger'> {{kata}} </ion-label>
+    </ng-template>
+    
+    <ng-template #benar>
+      <img src='../../assets/profilepic.png'> <br>
+      <ion-label color='success'> {{kata}} </ion-label>
+    </ng-template>
 </ion-content>
